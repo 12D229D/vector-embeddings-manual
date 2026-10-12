@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual y Guía de Vector Embeddings</title>
+    <meta name="description" content="Guía interactiva SPA para entender y usar embeddings con tecnologías web nativas.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <div class="brand-icon">EM</div>
+                <div class="brand-text">
+                    <h1>Vector Embeddings</h1>
+                    <span>Manual HTML5 & Embeddings</span>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Buscar en el manual...">
+            </div>
+
+            <!-- Reading Progress -->
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span>Progreso del Manual</span>
+                    <span id="progress-val">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="sidebar-nav">
+            <div class="nav-group">
+                <div class="nav-group-title">Introducción</div>
+                <a class="nav-item active" data-target="inicio">
+                    <span>🚀</span>
+                    <span class="nav-text">Inicio y Resumen</span>
+                    <span class="badge">01</span>
+                </a>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-group-title">Fundamentos</div>
+                <a class="nav-item" data-target="conceptos">
+                    <span>🧠</span>
+                    <span class="nav-text">Conceptos Clave</span>
+                    <span class="badge">02</span>
+                </a>
+                <a class="nav-item" data-target="generacion">
+                    <span>🔧</span>
+                    <span class="nav-text">Generación de Embeddings</span>
+                    <span class="badge">03</span>
+                </a>
+                <a class="nav-item" data-target="almacenamiento">
+                    <span>📦</span>
+                    <span class="nav-text">Almacenamiento de Embeddings</span>
+                    <span class="badge">04</span>
+                </a>
+                <a class="nav-item" data-target="recuperacion">
+                    <span>🔍</span>
+                    <span class="nav-text">Recuperación de Embeddings</span>
+                    <span class="badge">05</span>
+                </a>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-group-title">Práctica</div>
+                <a class="nav-item" data-target="esquemas">
+                    <span>📋</span>
+                    <span class="nav-text">Esquemas JSON</span>
+                    <span class="badge">06</span>
+                </a>
+                <a class="nav-item" data-target="casos">
+                    <span>🎯</span>
+                    <span class="nav-text">Casos de Uso</span>
+                    <span class="badge">07</span>
+                </a>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-group-title">Demo Interactiva</div>
+                <a class="nav-item" data-target="demo">
+                    <span>🔬</span>
+                    <span class="nav-text">Embeddings Playground</span>
+                    <span class="badge">WIZARD</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <button id="theme-toggle-btn" class="theme-toggle-btn">
+                <span id="theme-icon">🌙</span>
+                <span id="theme-text">Modo Oscuro</span>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <div class="main-wrapper">
+        <header class="top-header">
+            <button id="mobile-toggle-btn" class="mobile-toggle" aria-label="Abrir menú">☰</button>
+            <div class="header-breadcrumbs">
+                <span>Manual Embeddings</span>
+                <span>/</span>
+                <span id="current-crumb" class="active-crumb">Inicio y Resumen</span>
+            </div>
+            <div class="header-actions">
+                <span class="header-tag">HTML5 / Embeddings / RAG</span>
+            </div>
+        </header>
+
+        <main class="content-body">
+
+            <!-- ================= SECCIÓN: INICIO ================= -->
+            <section id="inicio" class="doc-section active">
+                <div class="section-header">
+                    <span class="section-tag">Bienvenido</span>
+                    <h1 class="section-title">Manual y Guía de Vector Embeddings</h1>
+                    <p class="section-description">
+                        Una referencia completa, interactiva y estructurada para entender, generar y usar embeddings con tecnologías web nativas.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>🎯 Objetivo de este Manual</h2>
+                    <p>
+                        Un <strong>vector embedding</strong> es una representación numérica densa de texto que captura su significado semántico. Este manual explica cómo generarlos, almacenarlos y recuperarlos para aplicaciones como RAG, búsqueda semántica y recomendación de contenido.
+                    </p>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <span class="card-icon">🧠</span>
+                            <h3 class="card-title">Conceptos</h3>
+                            <p class="card-desc">Vector embeddings, similaridad coseno, RAG.</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-icon">🔧</span>
+                            <h3 class="card-title">Generación</h3>
+                            <p class="card-desc">Modelos como <code>all-MiniLM-L6-v2</code>, parámetros, normalización.</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-icon">📦</span>
+                            <h3 class="card-title">Almacenamiento</h3>
+                            <p class="card-desc">FAISS/Chroma, índices, particiones.</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-icon">🔍</span>
+                            <h3 class="card-title">Recuperación</h3>
+                            <p class="card-desc"><code>similarity_search</code>, k-NN, filtros.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="callout info">
+                    <div class="callout-icon">💡</div>
+                    <div class="callout-content">
+                        <h4>Sugerencia de navegación</h4>
+                        <p>Usa el menú lateral o la búsqueda en tiempo real. Marca cada capítulo como completado para medir tu avance. El progreso y el tema se guardan en tu navegador (localStorage).</p>
+                    </div>
+                </div>
+
+                <div class="callout warning">
+                    <div class="callout-icon">⚠️</div>
+                    <div class="callout-content">
+                        <h4>Aviso de seguridad</h4>
+                        <p>Este manual NUNCA abre sockets ni lanza procesos stdio. La demo «Embeddings Playground» simula todo con <strong>respuestas mockeadas</strong>. Los ejemplos de almacenamiento FAISS/Chroma explican los riesgos (no exponer servidores de embeddings a internet).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: CONCEPTOS ================= -->
+            <section id="conceptos" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 01</span>
+                    <h1 class="section-title">Conceptos Clave</h1>
+                    <p class="section-description">
+                        Vector embeddings, similaridad coseno, RAG.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>1. ¿Qué es un vector embedding?</h2>
+                    <p>Un vector embedding es una representación numérica densa de texto que captura su significado semántico. Por ejemplo, la frase "El gato está en el tejado" podría representarse como un vector de 384 dimensiones (p. ej. <code>[-0.12, 0.45, ..., 0.08]</code>).</p>
+
+                    <div class="embedding-vector">
+                        <div class="embedding-vector-bar" style="width: 45%; background-color: var(--accent-primary);"></div>
+                        <div class="embedding-vector-bar" style="width: 55%; background-color: var(--accent-cyan);"></div>
+                        <div class="embedding-vector-bar" style="width: 30%; background-color: var(--accent-emerald);"></div>
+                        <div class="embedding-vector-bar" style="width: 70%; background-color: var(--accent-amber);"></div>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>2. Similaridad coseno</h2>
+                    <p>La similaridad coseno mide el ángulo entre dos vectores. Valores cercanos a 1 indican alta similitud semántica. Por ejemplo:</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">Python — Similaridad coseno</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>from sklearn.metrics.pairwise import cosine_similarity
+
+embedding1 = [-0.12, 0.45, ..., 0.08]  # "El gato está en el tejado"
+embedding2 = [0.08, 0.42, ..., -0.05]  # "El perro está en el tejado"
+
+similarity = cosine_similarity([embedding1], [embedding2])[0][0]
+# similarity ≈ 0.85 (alta similitud)</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>3. RAG (Retrieval-Augmented Generation)</h2>
+                    <p>RAG combina recuperación de embeddings con generación de lenguaje. Primero recupera documentos relevantes y luego los usa como contexto para generar respuestas.</p>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Comprendes qué es un vector embedding y cómo funciona la similaridad coseno?</span>
+                    <button class="completion-btn" data-section="conceptos">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: GENERACION ================= -->
+            <section id="generacion" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 02</span>
+                    <h1 class="section-title">Generación de Embeddings</h1>
+                    <p class="section-description">
+                        Modelos como <code>all-MiniLM-L6-v2</code>, parámetros, normalización.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>1. Modelos populares</h2>
+                    <ul>
+                        <li><code>all-MiniLM-L6-v2</code>: ligero (384 dimensiones), balance entre rendimiento y tamaño.</li>
+                        <li><code>text-embedding-ada-002</code>: de OpenAI, alto rendimiento (1536 dimensiones).</li>
+                        <li><code>multilingual-e5-large</code>: multilingüe, 1024 dimensiones.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2>2. Parámetros de generación</h2>
+                    <table style="width:100%; border-collapse: collapse; margin: 1rem 0; font-size:0.9rem;">
+                        <thead>
+                            <tr style="background-color: var(--bg-tertiary); text-align: left;">
+                                <th style="padding:0.7rem; border:1px solid var(--border-color);">Parámetro</th>
+                                <th style="padding:0.7rem; border:1px solid var(--border-color);">Valor típico</th>
+                                <th style="padding:0.7rem; border:1px solid var(--border-color);">Propósito</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color); font-weight:600;"><code>normalize_embeddings</code></td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">True</td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">Normaliza los vectores a longitud 1 para comparaciones coseno.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color); font-weight:600;"><code>batch_size</code></td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">32</td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">Procesa múltiples textos en paralelo.</td>
+                            </tr>
+                            <tr>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color); font-weight:600;"><code>trust_remote_code</code></td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">False</td>
+                                <td style="padding:0.7rem; border:1px solid var(--border-color);">Evita ejecución de código remoto no verificado.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="content-block">
+                    <h2>3. Ejemplo de generación</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">Python — Generación con Sentence Transformers</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>from sentence_transformers import SentenceTransformer
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+embeddings = model.encode(
+    ["El gato está en el tejado", "El perro está en el tejado"],
+    normalize_embeddings=True,
+    batch_size=32
+)
+
+# embeddings[0] ≈ [-0.12, 0.45, ..., 0.08]
+# embeddings[1] ≈ [0.08, 0.42, ..., -0.05]</code></pre>
+                    </div>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Sabrías elegir un modelo de embeddings y configurar sus parámetros?</span>
+                    <button class="completion-btn" data-section="generacion">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: ALMACENAMIENTO ================= -->
+            <section id="almacenamiento" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 03</span>
+                    <h1 class="section-title">Almacenamiento de Embeddings</h1>
+                    <p class="section-description">
+                        FAISS/Chroma, índices, particiones.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>1. Librerías de almacenamiento</h2>
+                    <ul>
+                        <li><strong>FAISS</strong>: de Meta, optimizado para búsqueda vectorial en memoria.</li>
+                        <li><strong>Chroma</strong>: base de datos vectorial ligera, con interfaz SQL.</li>
+                    </ul>
+                </div>
+
+                <div class="content-block">
+                    <h2>2. Ejemplo de almacenamiento con FAISS</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">Python — FAISS</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>import faiss
+import numpy as np
+
+# Crear índice FAISS
+index = faiss.IndexFlatL2(384)  # 384 dimensiones
+
+# Añadir embeddings
+embeddings = np.array([[-0.12, 0.45, ..., 0.08], [0.08, 0.42, ..., -0.05]], dtype='float32')
+index.add(embeddings)
+
+# Guardar índice a disco
+faiss.write_index(index, "embeddings.index")</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>3. Particiones y metadatos</h2>
+                    <p>Los embeddings suelen almacenarse con metadatos (fuente, fecha, categorías) para filtrar resultados. Por ejemplo:</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">JSON — Metadatos</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>{
+    "id": "doc_123",
+    "text": "El gato está en el tejado",
+    "embedding": [-0.12, 0.45, ..., 0.08],
+    "metadata": {
+        "source": "manual.txt",
+        "category": "animales",
+        "date": "2026-08-01"
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Entiendes cómo almacenar embeddings en FAISS/Chroma y usar metadatos?</span>
+                    <button class="completion-btn" data-section="almacenamiento">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: RECUPERACION ================= -->
+            <section id="recuperacion" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 04</span>
+                    <h1 class="section-title">Recuperación de Embeddings</h1>
+                    <p class="section-description">
+                        <code>similarity_search</code>, k-NN, filtros.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>1. Búsqueda por similaridad</h2>
+                    <p>La recuperación de embeddings se hace mediante búsqueda de vecinos más cercanos (k-NN). Por ejemplo:</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">Python — FAISS</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code># Cargar índice FAISS
+index = faiss.read_index("embeddings.index")
+
+# Buscar los 3 embeddings más similares
+query_embedding = np.array([[0.15, 0.38, ..., -0.02]], dtype='float32')
+D, I = index.search(query_embedding, k=3)
+
+# I[0] = [1, 0, 2]  # índices de los documentos más similares
+# D[0] = [0.12, 0.18, 0.25]  # distancias coseno (1 - similitud)</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>2. Filtros y particiones</h2>
+                    <p>Los metadatos permiten filtrar resultados. Por ejemplo, buscar solo documentos de la categoría "animales":</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">Python — FAISS con filtros</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code># Filtrar por metadatos (requiere Chroma o implementación custom)
+results = index.search(
+    query_embedding,
+    k=3,
+    filter={"category": "animales"}
+)
+
+# results = [doc_123, doc_456, doc_789]</n# (solo documentos de la categoría "animales")</code></pre>
+                    </div>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Sabrías realizar una búsqueda de embeddings con filtros?</span>
+                    <button class="completion-btn" data-section="recuperacion">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: ESQUEMAS ================= -->
+            <section id="esquemas" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 05</span>
+                    <h1 class="section-title">Esquemas JSON</h1>
+                    <p class="section-description">
+                        Estructura de embeddings, ejemplos de consultas.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <h2>1. Esquema de un embedding</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">JSON — Estructura</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>{
+    "id": "doc_123",
+    "text": "El gato está en el tejado",
+    "embedding": [-0.12, 0.45, ..., 0.08],
+    "metadata": {
+        "source": "manual.txt",
+        "category": "animales",
+        "date": "2026-08-01"
+    }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h2>2. Ejemplo de consulta similarity_search</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">JSON — Consulta</span>
+                            <button class="copy-btn">📋 Copiar</button>
+                        </div>
+                        <pre><code>{
+    "query": "¿Dónde está el animal?",
+    "k": 3,
+    "filter": {
+        "category": "animales"
+    }
+}
+
+// Respuesta esperada:
+[
+    {
+        "id": "doc_123",
+        "text": "El gato está en el tejado",
+        "score": 0.85
+    },
+    {
+        "id": "doc_456",
+        "text": "El perro está en el tejado",
+        "score": 0.82
+    }
+]</code></pre>
+                    </div>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Entiendes los esquemas JSON de embeddings y consultas?</span>
+                    <button class="completion-btn" data-section="esquemas">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: CASOS ================= -->
+            <section id="casos" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Capítulo 06</span>
+                    <h1 class="section-title">Casos de Uso</h1>
+                    <p class="section-description">
+                        RAG, búsqueda semántica, recomendación de contenido.
+                    </p>
+                </div>
+
+                <div class="content-block">
+                    <div class="cards-grid">
+                        <div class="card">
+                            <span class="card-icon">🔍</span>
+                            <h3 class="card-title">RAG</h3>
+                            <p class="card-desc">Combina recuperación de embeddings con generación de lenguaje.</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-icon">📚</span>
+                            <h3 class="card-title">Búsqueda semántica</h3>
+                            <p class="card-desc">Encuentra documentos similares a una consulta, no solo por palabras clave.</p>
+                        </div>
+                        <div class="card">
+                            <span class="card-icon">🎁</span>
+                            <h3 class="card-title">Recomendación</h3>
+                            <p class="card-desc">Recomienda productos, artículos o contenido basado en preferencias del usuario.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="completion-box">
+                    <span>¿Identificas un caso de uso alineado a tu proyecto?</span>
+                    <button class="completion-btn" data-section="casos">Marcar como Completado</button>
+                </div>
+            </section>
+
+            <!-- ================= SECCIÓN: DEMO ================= -->
+            <section id="demo" class="doc-section">
+                <div class="section-header">
+                    <span class="section-tag">Demo Interactiva</span>
+                    <h1 class="section-title">Embeddings Playground</h1>
+                    <p class="section-description">
+                        Simula la generación de embeddings y recuperación de documentos.
+                    </p>
+                </div>
+
+                <div class="wizard-container">
+                    <div class="demo-controls">
+                        <label for="text-input" class="demo-label">Ingresa texto para generar embeddings:</label>
+                        <textarea id="text-input" class="demo-textarea" placeholder="Ejemplo: "El gato está en el tejado""></textarea>
+                        <button id="generate-btn" class="btn btn-primary">🔧 Generar Embeddings</button>
+                    </div>
+
+                    <div class="demo-results">
+                        <div class="demo-embedding">
+                            <h3 class="demo-embedding-title">Embedding generado (mock):</h3>
+                            <div class="embedding-vector" id="embedding-vector"></div>
+                            <div class="demo-embedding-meta">
+                                <span class="demo-embedding-dimensions">384 dimensiones</span>
+                                <span class="demo-embedding-model">Modelo: all-MiniLM-L6-v2</span>
+                            </div>
+                        </div>
+
+                        <div class="demo-search">
+                            <label for="search-input" class="demo-label">Busca documentos similares:</label>
+                            <input type="text" id="search-input" class="demo-input" placeholder="Ejemplo: "¿Dónde está el animal?"">
+                            <button id="search-btn" class="btn btn-primary">🔍 Buscar</button>
+                        </div>
+
+                        <div class="demo-results-list" id="results-list">
+                            <p class="demo-results-empty">Los resultados de búsqueda aparecerán aquí.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- Main JS -->
+<script src="js/app.js"></script>
+</body>
+</html>
